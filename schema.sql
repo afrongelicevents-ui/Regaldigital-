@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS orders (
   name TEXT NOT NULL,
   business TEXT NOT NULL,
   package TEXT NOT NULL,
+  domain TEXT NOT NULL DEFAULT '',
   contact TEXT NOT NULL,
   message TEXT NOT NULL DEFAULT '',
   status TEXT NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'in_progress', 'done'))
