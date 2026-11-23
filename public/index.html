@@ -221,6 +221,83 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .hero h1 .row:nth-child(3){animation-delay:.16s}
 @keyframes phoneIn{from{opacity:0;transform:rotate(4deg) translateY(60px)}to{opacity:1;transform:rotate(-3deg)}}
 .phone{animation:phoneIn 1s .2s cubic-bezier(.2,.7,.2,1) both}
+
+/* ===== Sizing: a little smaller overall (headings ~15% smaller on computers, ~25% on phones) ===== */
+html,body{overflow-x:clip}
+.btn{min-height:48px;padding:0 24px;font-size:16px}
+.nav .wrap{height:64px}
+.hero{padding:32px 0 76px}
+.hero h1{font-size:clamp(39px,6.1vw,80px)}
+.lede{margin:24px 0 30px}
+.proof{gap:30px;margin-top:38px}
+.proof b{font-size:26px}
+.show{gap:20px}
+.show::before{width:400px;height:400px;top:36px}
+.phone{zoom:.88}
+.sec{padding:92px 0}
+.sec-h{font-size:clamp(34px,5.1vw,65px)}
+.sec-p{font-size:18px}
+.plans{margin-top:46px}
+.plan{padding:26px 30px;gap:24px}
+.plan.feat{padding:34px 30px}
+.plan h3{font-size:29px}
+.price{font-size:44px}
+.price .from{font-size:17px}
+.incl > div{padding:28px}
+.incl h3{font-size:20px;margin-bottom:14px}
+.steps{margin-top:46px}
+.steps::before{top:24px}
+.steps li::before{width:50px;height:50px;font-size:19px;margin-bottom:18px}
+.steps h3{font-size:20px}
+.who{padding:80px 0}
+.cloud{margin-top:36px}
+.cloud span{font-size:clamp(17px,2.2vw,26px);padding:10px 20px}
+summary{font-size:19px;padding:20px 0}
+.order{padding:76px 0}
+.wa b{font-size:26px}
+form{padding:28px;gap:16px}
+input,select,textarea{min-height:48px;padding:11px 14px}
+.ready .ok{font-size:17px}
+@media(max-width:860px){
+  .steps::before{left:24px}
+  .steps li{grid-template-columns:50px 1fr}
+}
+@media(max-width:920px){.hero-grid{gap:40px}}
+.hero-grid > *{min-width:0}
+@media(max-width:400px){.tabs{gap:2px;padding:5px}.tabs button{padding:10px 11px}}
+@media(max-width:340px){.tabs button{padding:10px 7px}}
+@media(max-width:900px){.plan{padding:22px;gap:14px 18px}.plan.feat{padding:28px 22px}}
+@media(max-width:600px){
+  .hero{padding:22px 0 56px}
+  .hero h1{font-size:34.5px}
+  .lede{font-size:17px;margin:20px 0 26px}
+  .proof{gap:24px;margin-top:30px}
+  .proof b{font-size:22.5px}
+  .show::before{width:340px;height:340px}
+  .phone{zoom:.82}
+  .sec{padding:64px 0}
+  .sec-h{font-size:30px}
+  .sec-p{font-size:17px;margin-top:16px}
+  .plans{margin-top:34px}
+  .plan h3{font-size:25.5px}
+  .price{font-size:39px}
+  .price .from{font-size:16px}
+  .incl{margin-top:26px}
+  .incl > div{padding:24px}
+  .incl h3{font-size:18px}
+  .steps{margin-top:34px;gap:24px}
+  .steps h3{font-size:18px}
+  .who{padding:60px 0}
+  .cloud{margin-top:28px;gap:10px}
+  .cloud span{font-size:16px;padding:9px 18px}
+  summary{font-size:17px;padding:18px 0}
+  .order{padding:56px 0}
+  .order-grid{gap:36px}
+  .wa{margin-top:24px}
+  .wa b{font-size:22.5px}
+  form{padding:22px}
+  .ready .ok{font-size:16px}
+}
 </style>
 </head>
 <body>
