@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regal Digital | Websites for Zimbabwean Businesses</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Modern websites for Zimbabwean businesses. Built in a week, made for phones, from $80.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..800&family=Geist:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F2B2C;        /* deep teal-black */
+  --ink-2:#4D5E5D;
+  --paper:#FBF7F0;      /* warm cream */
+  --jac:#0B4A4B;        /* regal teal */
+  --jac-deep:#073536;
+  --petal:#EFE4D2;
+  --sun:#C9A066;      /* champagne gold */
+  --line:#E7DDCC;
+  --r-lg:32px;--r-md:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Geist,system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Montserrat,sans-serif;margin:0;font-weight:750;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font:600 17px/1 Geist,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:active{transform:scale(.97)}
+.btn-jac{background:var(--jac);color:#fff}
+.btn-jac:hover{background:var(--jac-deep)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-sun:hover{background:#D8B27C}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(251,247,240,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.mark{display:flex;align-items:center;text-decoration:none}
+.mark .logo{height:34px;width:auto;display:block}
+@media(max-width:420px){.mark .logo{height:26px}}
+.fbrand{display:flex;align-items:center;gap:12px}
+.fbrand .ficon{width:36px;height:36px}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a:not(.btn){text-decoration:none;color:var(--ink-2);font-weight:500}
+.nav-links a:not(.btn):hover{color:var(--ink)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:15px}
+@media(max-width:780px){.nav-links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:40px 0 90px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+.hero h1{font-size:clamp(46px,7.2vw,94px);line-height:.95;letter-spacing:-.04em;font-weight:800}
+.hero h1 .row{display:block}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:2px var(--ink)}
+.lede{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:30ch;margin:28px 0 34px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;gap:34px;margin-top:46px;flex-wrap:wrap}
+.proof div{font-size:15px;color:var(--ink-2);line-height:1.3}
+.proof b{display:block;font-family:Montserrat;font-size:30px;color:var(--ink);letter-spacing:-.03em}
+
+/* showcase */
+.show{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px}
+.show::before{content:"";position:absolute;width:460px;height:460px;max-width:110%;border-radius:50%;background:var(--petal);top:40px;z-index:0}
+.phone{position:relative;z-index:1;width:300px;height:610px;border-radius:46px;background:var(--ink);padding:12px;box-shadow:0 40px 80px -30px rgba(11,74,75,.5);transform:rotate(-3deg)}
+.phone::after{content:"";position:absolute;top:22px;left:50%;transform:translateX(-50%);width:84px;height:22px;border-radius:20px;background:var(--ink);z-index:3}
+.screen{position:absolute;inset:12px;border-radius:35px;overflow:hidden;opacity:0;transform:translateY(14px) scale(.98);transition:opacity .45s ease, transform .45s ease;display:flex;flex-direction:column;padding:52px 20px 20px;gap:14px}
+.screen.on{opacity:1;transform:none}
+.s-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15px}
+.s-burger{width:20px;height:10px;border-top:2px solid currentColor;border-bottom:2px solid currentColor}
+.s-art{height:150px;border-radius:20px;position:relative;overflow:hidden}
+.s-art span{position:absolute;border-radius:50%}
+.s-h{font-family:Montserrat;font-weight:750;font-size:27px;line-height:1;letter-spacing:-.03em}
+.s-list{display:flex;flex-direction:column;gap:8px;font-size:13.5px}
+.s-list div{display:flex;justify-content:space-between;padding:9px 12px;border-radius:12px}
+.s-cta{margin-top:auto;border-radius:999px;text-align:center;font-weight:700;font-size:14px;padding:13px}
+
+/* salon */
+.sc-salon{background:#1B0F14;color:#FDE9EF}
+.sc-salon .s-art{background:#3A1726}
+.sc-salon .s-art span:nth-child(1){width:150px;height:150px;background:#FF8FB1;left:-30px;top:20px}
+.sc-salon .s-art span:nth-child(2){width:90px;height:90px;background:#FFD1DE;right:20px;top:-20px}
+.sc-salon .s-list div{background:#2A1620}
+.sc-salon .s-cta{background:#FF8FB1;color:#1B0F14}
+/* food */
+.sc-food{background:#FFF4E0;color:#2B1A0C}
+.sc-food .s-art{background:#F59E0B}
+.sc-food .s-art span:nth-child(1){width:170px;height:170px;background:#FFF4E0;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 14px #FDE7BF}
+.sc-food .s-art span:nth-child(2){width:60px;height:60px;background:#B45309;left:46%;top:38%}
+.sc-food .s-list div{background:#FCE6BE}
+.sc-food .s-cta{background:#B45309;color:#fff}
+/* lodge */
+.sc-lodge{background:#0E3A3B;color:#E8F3EE}
+.sc-lodge .s-art{background:linear-gradient(#F4A259 0 55%, #1F6F70 55%)}
+.sc-lodge .s-art span:nth-child(1){width:70px;height:70px;background:#FFD27A;left:40%;top:18%}
+.sc-lodge .s-art span:nth-child(2){width:300px;height:40px;border-radius:0;background:#16595A;left:0;bottom:0}
+.sc-lodge .s-list div{background:#165152}
+.sc-lodge .s-cta{background:#F4C95D;color:#0E3A3B}
+/* school */
+.sc-school{background:#EEF3FF;color:#0F1E4A}
+.sc-school .s-art{background:#2547D0}
+.sc-school .s-art span:nth-child(1){width:120px;height:120px;border-radius:24px;background:#FFC93C;left:24px;top:30px;transform:rotate(12deg)}
+.sc-school .s-art span:nth-child(2){width:80px;height:80px;background:#9DB4FF;right:24px;bottom:-20px}
+.sc-school .s-list div{background:#DCE5FF}
+.sc-school .s-cta{background:#2547D0;color:#fff}
+
+.tabs{position:relative;z-index:1;display:flex;gap:6px;background:#fff;padding:6px;border-radius:999px;box-shadow:0 0 0 1px var(--line)}
+.tabs button{font:600 14px Geist,sans-serif;border:0;background:transparent;color:var(--ink-2);padding:10px 16px;border-radius:999px;cursor:pointer;min-height:44px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.show-cap{position:relative;z-index:1;font-size:14px;color:var(--ink-2);margin:-8px 0 0}
+
+/* sections */
+.sec{padding:110px 0}
+.sec-h{font-size:clamp(40px,6vw,76px);line-height:.95;letter-spacing:-.04em;max-width:14ch}
+.sec-p{color:var(--ink-2);font-size:19px;max-width:44ch;margin:20px 0 0}
+
+/* pricing as rows */
+.plans{margin-top:56px;display:flex;flex-direction:column;gap:14px}
+.plan{display:grid;grid-template-columns:1.1fr 1.6fr auto auto;gap:28px;align-items:center;padding:30px 34px;border-radius:var(--r-lg);background:#fff;box-shadow:0 0 0 1px var(--line)}
+.plan h3{font-size:34px;letter-spacing:-.03em}
+.plan .what{color:var(--ink-2);font-size:16px;line-height:1.45}
+.plan .what b{color:var(--ink);font-weight:600;display:block;font-size:17px;margin-bottom:2px}
+.price{font-family:Montserrat;font-weight:750;font-size:52px;line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.price small{display:block;font-family:Geist;font-weight:500;font-size:15px;letter-spacing:0;color:var(--ink-2);margin-top:8px}
+.price .from{font-size:20px;letter-spacing:0;margin-right:4px}
+.plan.feat{background:var(--jac);color:#fff;box-shadow:none;padding:40px 34px}
+.plan.feat .what,.plan.feat .price small{color:#D3E4E1}
+.plan.feat .what b{color:#fff}
+.tag{display:inline-block;background:var(--sun);color:var(--ink);font:600 13px Geist;padding:5px 11px;border-radius:999px;margin-top:10px}
+@media(max-width:900px){
+  .plan{grid-template-columns:1fr auto;gap:16px 20px;padding:26px}
+  .plan .what{grid-column:1/-1;order:3}
+  .plan .btn{grid-column:1/-1;order:4}
+}
+.incl{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.incl{grid-template-columns:1fr}}
+.incl > div{background:var(--ink);color:#EDEAFB;border-radius:var(--r-lg);padding:32px}
+.incl > div + div{background:var(--petal);color:var(--ink)}
+.incl h3{font-size:24px;margin-bottom:16px;color:inherit}
+.incl ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.incl li{padding:8px 14px;border-radius:999px;font-size:15px;font-weight:500;background:rgba(255,255,255,.1)}
+.incl > div + div li{background:#fff}
+
+/* steps */
+.steps{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;list-style:none;padding:0;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.steps li{position:relative;padding-right:24px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 2px var(--ink);font-family:Montserrat;font-weight:750;font-size:22px;margin-bottom:22px;position:relative}
+.steps li:last-child::before{background:var(--jac);color:#fff;box-shadow:none}
+.steps h3{font-size:24px;margin-bottom:8px}
+.steps p{margin:0;color:var(--ink-2);font-size:16px}
+@media(max-width:860px){
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps::before{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .steps li{display:grid;grid-template-columns:56px 1fr;column-gap:20px;padding:0}
+  .steps li::before{grid-row:span 2;margin:0}
+}
+
+/* who marquee-free cloud */
+.who{background:var(--ink);color:#fff;border-radius:48px;margin:0 12px;padding:96px 0}
+.who .sec-h{color:#fff}
+.cloud{margin-top:44px;display:flex;flex-wrap:wrap;gap:12px}
+.cloud span{font-family:Montserrat;font-weight:600;font-size:clamp(20px,2.6vw,30px);padding:12px 24px;border-radius:999px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);letter-spacing:-.02em}
+.cloud span:nth-child(3n+1){background:var(--jac);box-shadow:none}
+.cloud span:nth-child(5){background:var(--sun);color:var(--ink)}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+@media(max-width:860px){.faq-grid{grid-template-columns:1fr;gap:30px}}
+details{border-bottom:2px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:24px 0;font-family:Montserrat;font-weight:650;font-size:22px;display:flex;justify-content:space-between;gap:20px;align-items:center;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;background:var(--petal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1830' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 24px;color:var(--ink-2);max-width:60ch}
+
+/* order */
+.order{background:var(--jac);color:#fff;border-radius:48px;margin:0 12px 12px;padding:90px 0}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:900px){.order-grid{grid-template-columns:1fr}}
+.order .sec-h{color:#fff}
+.order .sec-p{color:#D3E4E1}
+.wa{margin-top:32px;font-size:16px;color:#D3E4E1}
+.wa b{display:block;font-family:Montserrat;font-size:30px;color:#fff;letter-spacing:-.02em}
+form{background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:18px}
+label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:15px}
+input,select,textarea{font:400 17px Geist,sans-serif;color:var(--ink);background:var(--paper);border:2px solid transparent;border-radius:14px;padding:13px 15px;min-height:52px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--jac);background:#fff}
+textarea{min-height:96px;resize:vertical}
+.err{color:#B42318;font-weight:600;font-size:15px;margin:0;min-height:1.2em}
+.ready{display:none;background:var(--paper);border-radius:var(--r-md);padding:18px}
+.ready.is-on{display:block}
+.ready p{margin:0 0 12px;font-size:15px}
+.ready .ok{margin:0;font:700 19px/1.35 Montserrat,sans-serif;color:var(--jac);letter-spacing:-.01em}
+.ready .ok + p{margin:8px 0 0}
+.wa-alt{margin:0;text-align:center;font-size:15px;color:var(--ink-2)}
+.wa-alt a{color:var(--jac);font-weight:600}
+.btn[disabled]{opacity:.7;cursor:wait}
+
+footer{padding:36px 0 44px;color:var(--ink-2);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* single entrance moment */
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero h1 .row{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero h1 .row:nth-child(2){animation-delay:.08s}
+.hero h1 .row:nth-child(3){animation-delay:.16s}
+@keyframes phoneIn{from{opacity:0;transform:rotate(4deg) translateY(60px)}to{opacity:1;transform:rotate(-3deg)}}
+.phone{animation:phoneIn 1s .2s cubic-bezier(.2,.7,.2,1) both}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+<div class="wrap">
+<a class="mark" href="#top" aria-label="Regal Digital home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1285 256" class="logo" role="img" aria-label="Regal Digital">
+  
+  <g>
+    <rect x="4" y="112" width="13" height="13" fill="#B88A4E"/>
+    <rect x="22" y="96" width="13" height="13" fill="#0B4A4B"/>
+    <rect x="22" y="130" width="13" height="13" fill="#B88A4E"/>
+    <rect x="40" y="80" width="11" height="11" fill="#0B4A4B"/>
+    <rect x="40" y="114" width="16" height="16" fill="#0B4A4B"/>
+    <path d="M60 40 H138 C172 40 188 58 186 80 C184 100 168 114 140 118 L128 119 L120 96 L136 95 C150 94 158 88 158 80 C158 71 150 66 136 66 H60 Z" fill="#0B4A4B"/>
+    <path d="M74 96 H136 L108 122 Z" fill="#B88A4E"/>
+    <path d="M112 118 L142 116 L196 170 H162 Z" fill="#0B4A4B"/>
+    <path d="M58 186 C70 150 104 122 150 104 C168 97 182 93 192 92 C160 104 128 122 104 142 C86 157 72 172 62 190 Z" fill="#B88A4E"/>
+  </g>
+  <path d="M256.3577736830696 171.44141339692175Q238.84818014307393 171.44141339692175 225.72500000000002 164.64070669846086Q212.60181985692608 157.84 205.38505311077392 145.9289399523087Q198.16828636462174 134.0178799046174 198.16828636462174 118.85717320615652Q198.16828636462174 103.54575980923477 205.23272978538913 91.67237643615869Q212.29717320615651 79.79899306308259 224.66035334923043 73.07363971385215Q237.02353349230435 66.34828636462171 252.59706698460872 66.34828636462171Q267.6431270323 66.34828636462171 279.6836305007587 72.71490299154563Q291.7241339692174 79.08151961846954 298.7492840884457 90.93687296769997Q305.77443420767395 102.79222631693041 305.77443420767395 119.31575980923478Q305.77443420767395 121.02252655538695 305.64175753305875 123.20429330153912Q305.50908085844355 125.3860600476913 305.3190808584435 127.20747344461304H222.2336212876653V109.93687296769998H289.6271732061565L278.17768588770866 115.10293301539129Q278.2923325384782 107.18858660307825 275.01818935616734 101.25121016691958Q271.74404617385653 95.31383373076089 266.05237643615874 91.96433719921959Q260.3607066984609 88.6148406676783 252.7477736830696 88.6148406676783Q245.1348406676783 88.6148406676783 239.34817092998048 91.96433719921959Q233.5615011922827 95.31383373076089 230.38235800997182 101.30853349230435Q227.20321482766096 107.30323325384782 227.20321482766096 115.44687296769999V120.07252655538696Q227.20321482766096 128.4422263169304 230.89503468458702 134.73995610231952Q234.5868545415131 141.03768588770865 241.36120095382614 144.44450574463474Q248.13554736613918 147.8513256015608 257.22918707999133 147.8513256015608Q265.3663602861478 147.8513256015608 271.51176674615215 145.378092347713Q277.65717320615653 142.90485909386516 282.90181985692607 137.84374593539997L298.67231411229136 154.95070669846086Q291.5309007153696 163.0060600476913 280.93181064383265 167.2237367223065Q270.33272057229567 171.44141339692175 256.3577736830696 171.44141339692175Z M371.63676674615215 208.30141339692176Q357.1639399523087 208.30141339692176 343.7885866030782 204.78479676999785Q330.4132332538478 201.26818014307392 321.4111131584652 194.34959353999568L333.2142401907652 173.0002124430956Q339.7528267938435 178.32344569694342 349.67373672230656 181.47970897463688Q359.59464665076956 184.63597225233036 369.44505311077387 184.63597225233036Q385.15263277693475 184.63597225233036 392.2857159115543 177.5978891177108Q399.41879904617383 170.55980598309125 399.41879904617383 156.67040646000433V141.39554736613917L401.31879904617387 115.63040646000434L400.8209191415565 89.75061890309993V67.78969976154347H429.0597875569044V152.95869282462604Q429.0597875569044 181.33434641231304 414.17413396921745 194.8178799046174Q399.28848038153046 208.30141339692176 371.63676674615215 208.30141339692176ZM367.0601062215478 165.10252655538696Q352.91828636462174 165.10252655538696 341.34631638846736 158.92752655538698Q329.77434641231304 152.75252655538696 322.9163163884674 141.65717320615653Q316.0582863646217 130.5618198569261 316.0582863646217 115.63040646000434Q316.0582863646217 100.6989930630826 322.9163163884674 89.60363971385215Q329.77434641231304 78.50828636462171 341.34631638846736 72.42828636462171Q352.91828636462174 66.34828636462171 367.0601062215478 66.34828636462171Q380.09151961846953 66.34828636462171 389.8829861261652 71.55363971385216Q399.6744526338608 76.7589930630826 405.2302124430956 87.70202308692825Q410.78597225233034 98.6450531107739 410.78597225233034 115.63040646000434Q410.78597225233034 132.61575980923476 405.2302124430956 143.55878983308043Q399.6744526338608 154.5018198569261 389.8829861261652 159.8021732061565Q380.09151961846953 165.10252655538696 367.0601062215478 165.10252655538696ZM372.9570669846087 140.8342586169521Q380.8385866030782 140.8342586169521 386.8922263169304 137.65511543464123Q392.94586603078255 134.47597225233037 396.3723325384782 128.78430251463254Q399.7987990461738 123.09263277693475 399.7987990461738 115.63040646000434Q399.7987990461738 108.09282679384349 396.3723325384782 102.43883373076089Q392.94586603078255 96.7848406676783 386.8922263169304 93.70069748536744Q380.8385866030782 90.61655430305657 372.9570669846087 90.61655430305657Q365.2655473661392 90.61655430305657 359.116907652287 93.70069748536744Q352.96826793843485 96.7848406676783 349.504124756124 102.43883373076089Q346.0399815738131 108.09282679384349 346.0399815738131 115.63040646000434Q346.0399815738131 123.09263277693475 349.504124756124 128.78430251463254Q352.96826793843485 134.47597225233037 359.116907652287 137.65511543464123Q365.2655473661392 140.8342586169521 372.9570669846087 140.8342586169521Z M517.1779861261651 170.0V150.07959353999567L515.3990992846304 145.59818014307393V109.95030023845653Q515.3990992846304 100.40130717537394 509.5976327769348 95.15019401690873Q503.7961662692391 89.89908085844353 491.74111315846517 89.89908085844353Q483.67929330153913 89.89908085844353 475.77141339692173 92.42802081075222Q467.8635334923043 94.9569607630609 462.2749468892261 99.33019401690873L451.69040646000434 78.70151961846955Q460.1225265553869 72.65757966616086 471.87803002384567 69.50293301539128Q483.63353349230437 66.34828636462171 495.79353349230433 66.34828636462171Q519.258780619987 66.34828636462171 532.149434207674 77.34378983308042Q545.0400877953609 88.33929330153913 545.0400877953609 111.61777368306959V170.0ZM486.12293301539125 171.44141339692175Q474.1954595707782 171.44141339692175 465.64545957077826 167.41535334923043Q457.09545957077825 163.38929330153914 452.5534895946239 156.36090992846306Q448.01151961846955 149.33252655538695 448.01151961846955 140.5171732061565Q448.01151961846955 131.4789930630826 452.4536397138521 124.62096303923695Q456.89575980923473 117.7629330153913 466.58090992846303 113.86631638846738Q476.26606004769127 109.96969976154347 491.84282679384347 109.96969976154347H518.891219380013V127.24030023845654H495.12878061998697Q484.6200877953609 127.24030023845654 480.73988456535875 130.62909007153695Q476.8596813353566 134.0178799046174 476.8596813353566 139.3050531107739Q476.8596813353566 144.86404617385648 481.2770577715153 148.2135427053978Q485.69443420767396 151.5630392369391 493.4252471276826 151.5630392369391Q500.89070669846086 151.5630392369391 506.83131638846737 148.09889605462823Q512.7719260784738 144.63475287231736 515.3990992846304 137.67040646000433L519.8772794277043 151.4322263169304Q516.7193995230868 161.18787990461738 508.16616626923906 166.31464665076956Q499.61293301539126 171.44141339692175 486.12293301539125 171.44141339692175Z M569.8619260784739 170.0V29.02000000000001H599.5029145892045V170.0Z" fill="#0B4A4B"/>
+  <path d="M674.4899999999999 170.0V37.0H727.0566666666666Q748.2733333333333 37.0 764.2016666666666 45.55Q780.1299999999999 54.099999999999994 788.9966666666666 69.07833333333333Q797.8633333333332 84.05666666666667 797.8633333333332 103.5Q797.8633333333332 122.94333333333333 788.9966666666666 137.92166666666668Q780.1299999999999 152.9 764.2016666666666 161.45Q748.2733333333333 170.0 727.0566666666666 170.0ZM684.2433333333333 161.32333333333332H726.4233333333333Q745.2333333333332 161.32333333333332 759.0716666666666 153.88166666666666Q772.91 146.44 780.4783333333332 133.425Q788.0466666666666 120.41 788.0466666666666 103.5Q788.0466666666666 86.52666666666667 780.4783333333332 73.54333333333334Q772.91 60.56 759.0716666666666 53.11833333333333Q745.2333333333332 45.67666666666666 726.4233333333333 45.67666666666666H684.2433333333333Z M827.3266666666667 170.0V70.82H836.8266666666667V170.0ZM832.0766666666667 46.69Q828.8466666666667 46.69 826.5350000000001 44.41Q824.2233333333334 42.129999999999995 824.2233333333334 39.02666666666667Q824.2233333333334 35.79666666666665 826.5350000000001 33.58Q828.8466666666667 31.363333333333344 832.0766666666667 31.363333333333344Q835.4333333333334 31.363333333333344 837.6816666666667 33.516666666666666Q839.9300000000001 35.66999999999999 839.9300000000001 38.900000000000006Q839.9300000000001 42.06666666666666 837.7133333333334 44.37833333333333Q835.4966666666667 46.69 832.0766666666667 46.69Z M917.21 207.62Q903.72 207.62 891.56 203.47166666666666Q879.4 199.32333333333332 871.8633333333333 191.85L876.9933333333333 184.69333333333333Q884.34 191.53333333333333 894.7266666666667 195.33333333333331Q905.1133333333333 199.13333333333333 916.9566666666667 199.13333333333333Q936.9066666666668 199.13333333333333 946.375 189.76Q955.8433333333334 180.38666666666666 955.8433333333334 160.43666666666667V132.88666666666666L957.7433333333333 118.13L956.1600000000001 103.31V70.82H965.3433333333334V159.29666666666668Q965.3433333333334 184.18666666666667 953.2466666666667 195.90333333333334Q941.1500000000001 207.62 917.21 207.62ZM914.6133333333333 166.39Q900.5533333333334 166.39 889.375 160.21499999999997Q878.1966666666667 154.04 871.705 143.14666666666665Q865.2133333333334 132.25333333333333 865.2133333333334 118.13Q865.2133333333334 103.88 871.705 93.05Q878.1966666666667 82.22 889.375 76.14Q900.5533333333334 70.06 914.6133333333333 70.06Q928.1033333333334 70.06 938.7750000000001 75.82333333333334Q949.4466666666667 81.58666666666667 955.7166666666667 92.35333333333334Q961.9866666666667 103.12 961.9866666666667 118.13Q961.9866666666667 133.01333333333332 955.7166666666667 143.84333333333333Q949.4466666666667 154.67333333333335 938.7750000000001 160.53166666666667Q928.1033333333334 166.39 914.6133333333333 166.39ZM915.3733333333333 157.90333333333334Q927.2166666666667 157.90333333333334 936.3366666666667 152.86833333333334Q945.4566666666667 147.83333333333334 950.7133333333334 138.80833333333334Q955.97 129.78333333333333 955.97 118.13Q955.97 106.35 950.7133333333334 97.45166666666665Q945.4566666666667 88.55333333333333 936.3366666666667 83.55Q927.2166666666667 78.54666666666667 915.3733333333333 78.54666666666667Q903.72 78.54666666666667 894.5050000000001 83.55Q885.2900000000001 88.55333333333333 880.0333333333333 97.45166666666665Q874.7766666666666 106.35 874.7766666666666 118.13Q874.7766666666666 129.78333333333333 880.0333333333333 138.80833333333334Q885.2900000000001 147.83333333333334 894.5050000000001 152.86833333333334Q903.72 157.90333333333334 915.3733333333333 157.90333333333334Z M1004.4966666666668 170.0V70.82H1013.9966666666668V170.0ZM1009.2466666666668 46.69Q1006.0166666666668 46.69 1003.7050000000002 44.41Q1001.3933333333334 42.129999999999995 1001.3933333333334 39.02666666666667Q1001.3933333333334 35.79666666666665 1003.7050000000002 33.58Q1006.0166666666668 31.363333333333344 1009.2466666666668 31.363333333333344Q1012.6033333333335 31.363333333333344 1014.8516666666668 33.516666666666666Q1017.1000000000001 35.66999999999999 1017.1000000000001 38.900000000000006Q1017.1000000000001 42.06666666666666 1014.8833333333334 44.37833333333333Q1012.6666666666667 46.69 1009.2466666666668 46.69Z M1082.03 170.76Q1068.9833333333333 170.76 1062.0166666666667 163.54Q1055.05 156.32 1055.05 143.71666666666667V49.096666666666664H1064.55V142.89333333333335Q1064.55 152.39333333333335 1069.2683333333334 157.46Q1073.9866666666667 162.52666666666667 1082.98 162.52666666666667Q1092.29 162.52666666666667 1098.4333333333334 157.01666666666668L1102.2966666666666 163.79333333333332Q1098.6233333333332 167.34 1093.145 169.05Q1087.6666666666667 170.76 1082.03 170.76ZM1036.7466666666667 78.92666666666666V70.82H1096.09V78.92666666666666Z M1190.2800000000002 170.0V147.45333333333332L1189.9633333333334 143.90666666666667V106.79333333333332Q1189.9633333333334 92.92333333333333 1182.4583333333335 85.70333333333333Q1174.9533333333334 78.48333333333333 1160.45 78.48333333333333Q1150.19 78.48333333333333 1141.3233333333333 81.935Q1132.4566666666667 85.38666666666667 1126.1866666666667 91.02333333333333L1121.5633333333335 84.05666666666667Q1128.91 77.53333333333333 1139.3283333333334 73.79666666666667Q1149.7466666666667 70.06 1161.1466666666668 70.06Q1179.64 70.06 1189.5516666666667 79.33833333333334Q1199.4633333333334 88.61666666666667 1199.4633333333334 107.04666666666667V170.0ZM1154.6233333333334 170.76Q1143.4766666666667 170.76 1135.4333333333334 167.2133333333333Q1127.39 163.66666666666666 1123.1150000000002 157.20666666666665Q1118.8400000000001 150.74666666666667 1118.8400000000001 142.38666666666666Q1118.8400000000001 134.91333333333333 1122.3866666666668 128.675Q1125.9333333333334 122.43666666666667 1134.04 118.60499999999999Q1142.1466666666668 114.77333333333333 1155.9533333333334 114.77333333333333H1192.3700000000001V122.18333333333334H1156.1433333333334Q1140.69 122.18333333333334 1134.4833333333336 127.82Q1128.2766666666669 133.45666666666665 1128.2766666666669 142.00666666666666Q1128.2766666666669 151.63333333333333 1135.5600000000002 157.33333333333331Q1142.8433333333335 163.03333333333333 1155.8266666666668 163.03333333333333Q1168.4933333333333 163.03333333333333 1177.1066666666666 157.26999999999998Q1185.72 151.50666666666666 1189.9633333333334 140.80333333333334L1192.496666666667 147.26333333333332Q1188.6333333333334 157.96666666666667 1179.0066666666667 164.36333333333334Q1169.38 170.76 1154.6233333333334 170.76Z M1237.4766666666667 170.0V29.02000000000001H1246.9766666666667V170.0Z" fill="#0B4A4B"/>
+  <path d="M150 238 C 578 228 964 226 1255 231 C 964 229 578 232 152 244 Z" fill="#B88A4E"/>
+</svg></a>
+<div class="nav-links">
+<a href="#work">Examples</a>
+<a href="#prices">Prices</a>
+<a href="#faq">Questions</a>
+<a class="btn btn-jac" href="#order">Get a website</a>
+</div>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<div class="wrap hero-grid">
+<div>
+<h1><span class="row">Your</span><span class="row">business,</span><span class="row stroke">online.</span></h1>
+<p class="lede">Modern websites for Zimbabwean businesses. Built in a week, made for phones, priced in USD.</p>
+<div class="ctas">
+<a class="btn btn-jac" href="#order">Order your website</a>
+<a class="btn btn-line" href="#prices">See prices</a>
+</div>
+<div class="proof">
+<div><b>$80</b>to get started</div>
+<div><b>3–7 days</b>from order to live</div>
+<div><b>$0</b>for your web address</div>
+</div>
+</div>
+
+<div class="show" id="work">
+<div class="phone" aria-live="polite">
+<div class="screen sc-salon on" data-s="salon" aria-label="Example salon website">
+<div class="s-top">Glow Studio<span class="s-burger" aria-hidden="true"></span></div>
+<div class="s-art" aria-hidden="true"><span></span><span></span></div>
+<div class="s-h">Braids, colour &amp; nails in Avondale</div>
+<div class="s-list"><div>Knotless braids<b>$35</b></div><div>Gel nails<b>$15</b></div><div>Wash &amp; set<b>$10</b></div></div>
+<div class="s-cta">Book on WhatsApp</div>
+</div>
+<div class="screen sc-food" data-s="food" aria-label="Example restaurant website">
+<div class="s-top">Mama's Kitchen<span class="s-burger" aria-hidden="true"></span></div>
+<div class="s-art" aria-hidden="true"><span></span><span></span></div>
+<div class="s-h">Sadza, stew &amp; grills, delivered</div>
+<div class="s-list"><div>Sadza &amp; beef stew<b>$6</b></div><div>Chicken &amp; chips<b>$5</b></div><div>Grilled T-bone<b>$9</b></div></div>
+<div class="s-cta">Order now</div>
+</div>
+<div class="screen sc-lodge" data-s="lodge" aria-label="Example lodge website">
+<div class="s-top">Kariba Shores<span class="s-burger" aria-hidden="true"></span></div>
+<div class="s-art" aria-hidden="true"><span></span><span></span></div>
+<div class="s-h">Sunsets on the lake, every night</div>
+<div class="s-list"><div>Lake view room<b>$85</b></div><div>Houseboat day trip<b>$120</b></div></div>
+<div class="s-cta">Check dates</div>
+</div>
+<div class="screen sc-school" data-s="school" aria-label="Example school website">
+<div class="s-top">Bright Minds College<span class="s-burger" aria-hidden="true"></span></div>
+<div class="s-art" aria-hidden="true"><span></span><span></span></div>
+<div class="s-h">Now enrolling Form 1 to 6 for 2027</div>
+<div class="s-list"><div>O-Level<b>Apply</b></div><div>A-Level<b>Apply</b></div><div>Open day<b>6 Dec</b></div></div>
+<div class="s-cta">Apply online</div>
+</div>
+</div>
+<div class="tabs" role="tablist" aria-label="Example websites">
+<button role="tab" aria-selected="true" data-t="salon">Salon</button>
+<button role="tab" aria-selected="false" data-t="food">Restaurant</button>
+<button role="tab" aria-selected="false" data-t="lodge">Lodge</button>
+<button role="tab" aria-selected="false" data-t="school">School</button>
+</div>
+<p class="show-cap">Tap to see what yours could look like</p>
+</div>
+</div>
+</header>
+
+<main>
+<section class="sec" id="prices" style="padding-top:40px">
+<div class="wrap">
+<h2 class="sec-h">Pay once to build. A little each month to keep it running.</h2>
+<p class="sec-p">No hidden costs. Your monthly fee covers hosting, security and small updates, so you never have to think about it.</p>
+
+<div class="plans">
+<article class="plan">
+<h3>Starter</h3>
+<div class="what"><b>A one-page website</b>For freelancers, small shops, churches and events.</div>
+<div class="price">$80<small>then $10 a month</small></div>
+<button class="btn btn-line" type="button" data-plan="0">Choose Starter</button>
+</article>
+<article class="plan feat">
+<div><h3>Business</h3><span class="tag">Most chosen</span></div>
+<div class="what"><b>Up to 5 pages with a photo gallery</b>Home, About, Services, Gallery and Contact. Set up to show on Google.</div>
+<div class="price">$180<small>then $15 a month</small></div>
+<button class="btn btn-sun" type="button" data-plan="1">Choose Business</button>
+</article>
+<article class="plan">
+<h3>Premium</h3>
+<div class="what"><b>An online shop or booking site</b>Up to 10 pages, with products or bookings sent straight to your WhatsApp.</div>
+<div class="price"><span class="from">from</span>$350<small>then $25 a month</small></div>
+<button class="btn btn-line" type="button" data-plan="2">Choose Premium</button>
+</article>
+</div>
+
+<div class="incl">
+<div>
+<h3>Every website comes with</h3>
+<ul><li>Free web address</li><li>Looks great on phones</li><li>WhatsApp &amp; call buttons</li><li>Google Maps location</li><li>Hosting</li><li>Security &amp; backups</li><li>Small updates</li><li>WhatsApp support</li></ul>
+</div>
+<div>
+<h3>Want your own .com?</h3>
+<p style="margin:0 0 16px">Buy it in your own name, about $10–15 a year, and we connect it to your site for free. You always own it.</p>
+<ul><li>50% deposit to start</li><li>USD &amp; EcoCash</li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" style="padding-top:20px">
+<div class="wrap">
+<h2 class="sec-h">From a WhatsApp chat to a live website.</h2>
+<ol class="steps">
+<li><h3>Pick a package</h3><p>Choose one and send us a message.</p></li>
+<li><h3>Send your details</h3><p>Logo, photos, services, prices and contacts.</p></li>
+<li><h3>See a preview</h3><p>Ask for changes until you love it.</p></li>
+<li><h3>Go live</h3><p>Share your link. We look after the rest.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="who">
+<div class="wrap">
+<h2 class="sec-h">Made for businesses like yours.</h2>
+<div class="cloud">
+<span>Salons</span><span>Restaurants</span><span>Schools</span><span>Churches</span><span>Lodges &amp; tours</span><span>Builders</span><span>Clinics</span><span>Boutiques</span><span>Freelancers</span><span>Weddings</span><span>Car hire</span><span>Farms</span>
+</div>
+</div>
+</section>
+
+<section class="sec" id="faq">
+<div class="wrap faq-grid">
+<h2 class="sec-h">Good questions.</h2>
+<div>
+<details><summary>How long does it take?</summary><p>Most websites are ready in 3–7 days once we have your photos and details. Premium sites can take a little longer.</p></details>
+<details><summary>Why is there a monthly fee?</summary><p>Every website needs hosting to stay online. The monthly fee covers hosting, security, backups, small updates and support.</p></details>
+<details><summary>Do I need to buy a domain?</summary><p>No. Every site comes with a free web address. If you want your own .com or .co.zw, you buy it in your name and we connect it for free.</p></details>
+<details><summary>Can I change things later?</summary><p>Yes. Small text and photo changes are included every month. New pages or a redesign are quoted separately.</p></details>
+<details><summary>What do I need to send you?</summary><p>Your business name, logo if you have one, photos, services or products, prices and contact details.</p></details>
+</div>
+</div>
+</section>
+
+<section class="order" id="order">
+<div class="wrap order-grid">
+<div>
+<h2 class="sec-h">Let's build yours.</h2>
+<p class="sec-p">Fill this in and we'll contact you within 24 hours.</p>
+<p class="wa">Or message directly<b>[+263 7X XXX XXXX]</b></p>
+</div>
+<form id="orderForm" novalidate>
+<label for="f-name">Your name<input id="f-name" autocomplete="name"></label>
+<label for="f-biz">Business name<input id="f-biz" autocomplete="organization"></label>
+<label for="f-contact">Phone/WhatsApp number or email<input id="f-contact" autocomplete="tel" inputmode="text"></label>
+<label for="f-plan">Package
+<select id="f-plan">
+<option>Starter ($80 + $10/month)</option>
+<option selected>Business ($180 + $15/month)</option>
+<option>Premium (from $350 + $25/month)</option>
+<option>Not sure yet, please advise</option>
+</select></label>
+<label for="f-msg">About your business (optional)<textarea id="f-msg"></textarea></label>
+<input id="f-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+<p class="err" id="err" role="alert"></p>
+<button class="btn btn-jac" type="submit" id="sendBtn">Send my order</button>
+<div class="ready" id="ready" aria-live="polite" tabindex="-1">
+<p class="ok">Order received. We'll contact you within 24 hours.</p>
+<p>Thank you for choosing Regal Digital.</p>
+</div>
+<p class="wa-alt">Prefer WhatsApp? <a id="waLink" href="#" target="_blank" rel="noopener">Chat with us</a></p>
+</form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<span class="fbrand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="ficon" role="img" aria-label="Regal Digital icon">
+  <rect width="240" height="240" rx="54" fill="#0B4A4B"/>
+  <g transform="translate(18 4)">
+  <g>
+    <rect x="4" y="112" width="13" height="13" fill="#D9B27A"/>
+    <rect x="22" y="96" width="13" height="13" fill="#FBF7F0"/>
+    <rect x="22" y="130" width="13" height="13" fill="#D9B27A"/>
+    <rect x="40" y="80" width="11" height="11" fill="#FBF7F0"/>
+    <rect x="40" y="114" width="16" height="16" fill="#FBF7F0"/>
+    <path d="M60 40 H138 C172 40 188 58 186 80 C184 100 168 114 140 118 L128 119 L120 96 L136 95 C150 94 158 88 158 80 C158 71 150 66 136 66 H60 Z" fill="#FBF7F0"/>
+    <path d="M74 96 H136 L108 122 Z" fill="#D9B27A"/>
+    <path d="M112 118 L142 116 L196 170 H162 Z" fill="#FBF7F0"/>
+    <path d="M58 186 C70 150 104 122 150 104 C168 97 182 93 192 92 C160 104 128 122 104 142 C86 157 72 172 62 190 Z" fill="#D9B27A"/>
+  </g></g>
+</svg>© 2026 Regal Digital. Websites for Zimbabwean businesses.</span>
+<span>WhatsApp [+263 7X XXX XXXX]</span>
+</div>
+</footer>
+
+<script>
+// Your WhatsApp number: country code + number, digits only (e.g. 263771234567)
+var WHATSAPP_NUMBER = "263000000000";
+
+(function(){
+  var tabs = [].slice.call(document.querySelectorAll('[data-t]'));
+  var screens = [].slice.call(document.querySelectorAll('.screen'));
+  var i = 0, timer = null;
+  function show(name){
+    screens.forEach(function(s){ s.classList.toggle('on', s.dataset.s === name); });
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.t === name ? 'true' : 'false'); });
+  }
+  tabs.forEach(function(t, n){
+    t.addEventListener('click', function(){ clearInterval(timer); i = n; show(t.dataset.t); });
+  });
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!still){ timer = setInterval(function(){ i = (i + 1) % tabs.length; show(tabs[i].dataset.t); }, 3200); }
+})();
+
+document.querySelectorAll('[data-plan]').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.getElementById('f-plan').selectedIndex = +b.dataset.plan;
+    document.getElementById('order').scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){ document.getElementById('f-name').focus({preventScroll:true}); }, 600);
+  });
+});
+
+document.getElementById('waLink').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent('Hi! I would like a website.');
+
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = this;
+  var get = function(id){ return document.getElementById(id); };
+  var name = get('f-name').value.trim();
+  var biz = get('f-biz').value.trim();
+  var contact = get('f-contact').value.trim();
+  var plan = get('f-plan').value;
+  var msg = get('f-msg').value.trim();
+  var err = get('err'), ready = get('ready'), btn = get('sendBtn');
+  function fail(text, field){ err.textContent = text; ready.classList.remove('is-on'); if(field){ get(field).focus(); } }
+  if(!name){ return fail('Please add your name.', 'f-name'); }
+  if(!biz){ return fail('Please add your business name.', 'f-biz'); }
+  if(!contact){ return fail('Please add a phone number or email so we can reach you.', 'f-contact'); }
+  var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+  var digits = contact.replace(/\D/g, '');
+  if(!isEmail && (contact.indexOf('@') > -1 || digits.length < 7 || digits.length > 15 || /[^\d\s()+\-.]/.test(contact))){
+    return fail('That phone number or email doesn\'t look right. Please check it.', 'f-contact');
+  }
+  if(name.length > 100 || biz.length > 150 || msg.length > 2000){ return fail('Some of your answers are too long. Please shorten them.'); }
+  err.textContent = '';
+  btn.disabled = true; btn.textContent = 'Sending…';
+  fetch('/api/order', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name: name, business: biz, contact: contact, package: plan, message: msg, website: get('f-hp').value})
+  }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return {ok: r.ok, d: d}; }); })
+  .then(function(res){
+    if(!res.ok){ throw new Error(res.d.error || 'Something went wrong. Please try again, or chat with us on WhatsApp.'); }
+    form.reset(); get('f-plan').selectedIndex = 1;
+    ready.classList.add('is-on'); ready.focus();
+  }).catch(function(ex){
+    fail(ex && ex.message && ex.message !== 'Failed to fetch' ? ex.message : 'We couldn\'t send your order. Check your internet and try again, or chat with us on WhatsApp.');
+  }).then(function(){ btn.disabled = false; btn.textContent = 'Send my order'; });
+});
+</script>
+</body>
+</html>

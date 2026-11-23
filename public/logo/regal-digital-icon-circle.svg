@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Regal Digital icon">
+  <circle cx="120" cy="120" r="120" fill="#0B4A4B"/>
+  <g transform="translate(18 4)">
+  <g>
+    <rect x="4" y="112" width="13" height="13" fill="#D9B27A"/>
+    <rect x="22" y="96" width="13" height="13" fill="#FBF7F0"/>
+    <rect x="22" y="130" width="13" height="13" fill="#D9B27A"/>
+    <rect x="40" y="80" width="11" height="11" fill="#FBF7F0"/>
+    <rect x="40" y="114" width="16" height="16" fill="#FBF7F0"/>
+    <path d="M60 40 H138 C172 40 188 58 186 80 C184 100 168 114 140 118 L128 119 L120 96 L136 95 C150 94 158 88 158 80 C158 71 150 66 136 66 H60 Z" fill="#FBF7F0"/>
+    <path d="M74 96 H136 L108 122 Z" fill="#D9B27A"/>
+    <path d="M112 118 L142 116 L196 170 H162 Z" fill="#FBF7F0"/>
+    <path d="M58 186 C70 150 104 122 150 104 C168 97 182 93 192 92 C160 104 128 122 104 142 C86 157 72 172 62 190 Z" fill="#D9B27A"/>
+  </g></g>
+</svg>

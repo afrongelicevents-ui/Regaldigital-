@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Orders | Regal Digital Admin</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..800&family=Geist:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F2B2C;--ink-2:#4D5E5D;--paper:#FBF7F0;--jac:#0B4A4B;--jac-deep:#073536;
+  --petal:#EFE4D2;--sun:#C9A066;--line:#E7DDCC;--r-lg:32px;--r-md:18px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Geist,system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:Montserrat,sans-serif;margin:0;font-weight:750;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px/1 Geist,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:active{transform:scale(.97)}
+.btn-jac{background:var(--jac);color:#fff}.btn-jac:hover{background:var(--jac-deep)}
+.btn-sun{background:var(--sun);color:var(--ink)}.btn-sun:hover{background:#D8B27C}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:14px}
+.logo{height:26px;width:auto;display:block}
+
+/* login */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px 16px}
+.login-card{width:100%;max-width:400px;background:var(--jac);color:#fff;border-radius:40px;padding:40px 28px}
+.login-card .logo{height:28px;margin-bottom:28px}
+.login-card h1{font-size:30px;margin-bottom:8px}
+.login-card p{color:#D3E4E1;margin:0 0 22px}
+form{display:flex;flex-direction:column;gap:14px}
+label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:15px}
+input,select{font:400 17px Geist,sans-serif;color:var(--ink);background:var(--paper);border:2px solid transparent;border-radius:14px;padding:12px 15px;min-height:52px}
+input:focus,select:focus{outline:none;border-color:var(--sun);background:#fff}
+.err{color:#FFD7D2;font-weight:600;font-size:15px;margin:0;min-height:1.2em}
+
+/* app */
+header{background:var(--jac);color:#fff;border-radius:0 0 32px 32px;padding:18px 0 26px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+header .btn-line{color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.3)}
+header h1{font-size:30px;margin-top:22px}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;color:#D3E4E1;font-size:15px}
+.stats b{color:#fff;font-family:Montserrat;font-size:18px;margin-right:4px}
+.stats span{background:rgba(255,255,255,.1);padding:6px 14px;border-radius:999px}
+.filters{display:flex;gap:6px;background:#fff;padding:6px;border-radius:999px;box-shadow:0 0 0 1px var(--line);margin:22px 0 18px;overflow-x:auto}
+.filters button{flex:1;font:600 14px Geist,sans-serif;border:0;background:transparent;color:var(--ink-2);padding:10px 14px;border-radius:999px;cursor:pointer;min-height:44px;white-space:nowrap}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.list{display:grid;gap:14px;padding-bottom:48px}
+.card{background:#fff;border-radius:24px;box-shadow:0 0 0 1px var(--line);padding:20px;display:grid;gap:12px}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card h2{font-size:20px;line-height:1.25}
+.who{color:var(--ink-2);font-size:15px;margin-top:2px}
+.date{color:var(--ink-2);font-size:13px;white-space:nowrap;text-align:right}
+.pkg{display:inline-block;background:var(--petal);font:600 13px Geist;padding:5px 11px;border-radius:999px}
+.msg{background:var(--paper);border-radius:14px;padding:12px 14px;margin:0;white-space:pre-wrap;word-break:break-word;font-size:15px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.contact .num{font-weight:600;word-break:break-all;margin-right:4px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:2px solid var(--line);padding-top:12px}
+.row select{min-height:44px;padding:8px 12px;font-size:15px;font-weight:600}
+.st-new{box-shadow:inset 4px 0 0 var(--sun),0 0 0 1px var(--line)}
+.st-in_progress{box-shadow:inset 4px 0 0 var(--jac),0 0 0 1px var(--line)}
+.st-done{opacity:.75}
+.del{background:none;border:0;color:#B42318;font:600 14px Geist;cursor:pointer;padding:8px;min-height:44px}
+.empty{text-align:center;color:var(--ink-2);padding:48px 16px;background:#fff;border-radius:24px;box-shadow:0 0 0 1px var(--line)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<section class="login" id="loginView">
+<div class="login-card">
+<img class="logo" src="/logo/regal-digital-logo-white.svg" alt="Regal Digital">
+<h1>Orders</h1>
+<p>Enter your admin password.</p>
+<form id="loginForm">
+<label for="pw">Password<input id="pw" type="password" autocomplete="current-password" required></label>
+<p class="err" id="loginErr" role="alert"></p>
+<button class="btn btn-sun" type="submit" id="loginBtn">Log in</button>
+</form>
+</div>
+</section>
+
+<div id="appView" hidden>
+<header>
+<div class="wrap">
+<div class="top">
+<img class="logo" src="/logo/regal-digital-logo-white.svg" alt="Regal Digital">
+<button class="btn btn-line btn-sm" id="logout">Log out</button>
+</div>
+<h1>Orders</h1>
+<div class="stats" id="stats"></div>
+</div>
+</header>
+<main class="wrap">
+<div class="filters" role="group" aria-label="Filter by status">
+<button data-f="" aria-pressed="true">All</button>
+<button data-f="new" aria-pressed="false">New</button>
+<button data-f="in_progress" aria-pressed="false">In progress</button>
+<button data-f="done" aria-pressed="false">Done</button>
+</div>
+<div class="list" id="list"></div>
+</main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// Country code added to local numbers that start with 0 (e.g. 077 123 4567 -> 26377...)
+var DEFAULT_COUNTRY_CODE = "263";
+var KEY = 'rd_admin_pw';
+var LABELS = {new: 'New', in_progress: 'In progress', done: 'Done'};
+var pw = localStorage.getItem(KEY) || '';
+var orders = [], filter = '';
+var $ = function(id){ return document.getElementById(id); };
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function toast(t){ var el = $('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(function(){ el.classList.remove('on'); }, 2200); }
+
+function api(path, opts){
+  opts = opts || {};
+  opts.headers = Object.assign({'Authorization': 'Bearer ' + pw, 'Content-Type': 'application/json'}, opts.headers || {});
+  return fetch(path, opts).then(function(r){
+    if(r.status === 401){ logout('Wrong password. Please try again.'); throw new Error('auth'); }
+    return r.json().then(function(d){ if(!r.ok){ throw new Error(d.error || 'Error'); } return d; });
+  });
+}
+
+function logout(msg){
+  pw = ''; localStorage.removeItem(KEY);
+  $('appView').hidden = true; $('loginView').hidden = false;
+  $('loginErr').textContent = msg || '';
+  $('pw').value = '';
+}
+
+function load(){
+  return api('/api/admin/orders').then(function(d){
+    orders = d.orders;
+    $('loginView').hidden = true; $('appView').hidden = false;
+    render();
+  });
+}
+
+function waLink(contact){
+  if(contact.indexOf('@') > -1) return null;
+  var d = contact.replace(/\D/g, '');
+  if(/^\s*\+/.test(contact)) return d;
+  if(d.indexOf('00') === 0) return d.slice(2);
+  if(d.charAt(0) === '0') return DEFAULT_COUNTRY_CODE + d.slice(1);
+  return d;
+}
+
+function fmtDate(iso){
+  var d = new Date(iso);
+  return d.toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'}) + '<br>' + d.toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'});
+}
+
+function render(){
+  var counts = {new: 0, in_progress: 0, done: 0};
+  orders.forEach(function(o){ counts[o.status]++; });
+  $('stats').innerHTML = '<span><b>' + orders.length + '</b>total</span><span><b>' + counts.new + '</b>new</span><span><b>' + counts.in_progress + '</b>in progress</span><span><b>' + counts.done + '</b>done</span>';
+  var shown = orders.filter(function(o){ return !filter || o.status === filter; });
+  if(!shown.length){ $('list').innerHTML = '<div class="empty">' + (orders.length ? 'No orders with this status.' : 'No orders yet. They will appear here as soon as a client sends the form.') + '</div>'; return; }
+  $('list').innerHTML = shown.map(function(o){
+    var wa = waLink(o.contact);
+    var greet = 'Hi ' + o.name.split(' ')[0] + ', this is Regal Digital. Thank you for your order for ' + o.business + '!';
+    var actions = o.contact.indexOf('@') > -1
+      ? '<a class="btn btn-sun btn-sm" href="mailto:' + esc(o.contact) + '?subject=' + encodeURIComponent('Your Regal Digital website') + '">Email</a>'
+      : '<a class="btn btn-sun btn-sm" href="https://wa.me/' + wa + '?text=' + encodeURIComponent(greet) + '" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-line btn-sm" href="tel:' + esc(o.contact.replace(/[^\d+]/g, '')) + '">Call</a>';
+    return '<article class="card st-' + o.status + '">' +
+      '<div class="card-top"><div><h2>' + esc(o.business) + '</h2><div class="who">' + esc(o.name) + '</div></div><div class="date">' + fmtDate(o.created_at) + '</div></div>' +
+      '<div><span class="pkg">' + esc(o.package) + '</span></div>' +
+      (o.message ? '<p class="msg">' + esc(o.message) + '</p>' : '') +
+      '<div class="contact"><span class="num">' + esc(o.contact) + '</span>' + actions + '</div>' +
+      '<div class="row"><label style="flex-direction:row;align-items:center;gap:10px">Status <select data-id="' + o.id + '">' +
+        Object.keys(LABELS).map(function(k){ return '<option value="' + k + '"' + (k === o.status ? ' selected' : '') + '>' + LABELS[k] + '</option>'; }).join('') +
+      '</select></label><button class="del" data-del="' + o.id + '">Delete</button></div>' +
+    '</article>';
+  }).join('');
+}
+
+$('loginForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  pw = $('pw').value;
+  if(!pw){ return; }
+  $('loginBtn').disabled = true; $('loginErr').textContent = '';
+  load().then(function(){ localStorage.setItem(KEY, pw); })
+    .catch(function(ex){ if(ex.message !== 'auth'){ $('loginErr').textContent = 'Could not connect. Check your internet and try again.'; } })
+    .then(function(){ $('loginBtn').disabled = false; });
+});
+
+$('logout').addEventListener('click', function(){ logout(); });
+
+document.querySelectorAll('[data-f]').forEach(function(b){
+  b.addEventListener('click', function(){
+    filter = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    render();
+  });
+});
+
+$('list').addEventListener('change', function(e){
+  var sel = e.target.closest('select[data-id]'); if(!sel) return;
+  var id = +sel.dataset.id, status = sel.value;
+  api('/api/admin/orders/' + id, {method: 'PATCH', body: JSON.stringify({status: status})}).then(function(){
+    orders.forEach(function(o){ if(o.id === id){ o.status = status; } });
+    render(); toast('Marked as ' + LABELS[status]);
+  }).catch(function(ex){ if(ex.message !== 'auth'){ toast('Could not save. Try again.'); render(); } });
+});
+
+$('list').addEventListener('click', function(e){
+  var b = e.target.closest('[data-del]'); if(!b) return;
+  var id = +b.dataset.del;
+  if(!confirm('Delete this order? This cannot be undone.')) return;
+  api('/api/admin/orders/' + id, {method: 'DELETE'}).then(function(){
+    orders = orders.filter(function(o){ return o.id !== id; });
+    render(); toast('Order deleted');
+  }).catch(function(ex){ if(ex.message !== 'auth'){ toast('Could not delete. Try again.'); } });
+});
+
+document.addEventListener('visibilitychange', function(){ if(!document.hidden && pw && !$('appView').hidden){ load().catch(function(){}); } });
+
+if(pw){ load().catch(function(ex){ if(ex.message !== 'auth'){ $('loginErr').textContent = 'Could not connect. Check your internet and try again.'; } }); }
+</script>
+</body>
+</html>
